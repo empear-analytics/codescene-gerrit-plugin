@@ -1,0 +1,10 @@
+{
+  "extends": "./node_modules/@gerritcodereview/typescript-api/tsconfig-plugins-base.json",
+  // your custom configuration and overrides
+  "compilerOptions": {
+    "rootDir": "src/web/",
+    "outDir": "target/web/",
+    "module": "commonjs",
+    "target": "es2015" /* Specify ECMAScript target version: 'ES3' (default), 'ES5', 'ES2015', 'ES2016', 'ES2017', 'ES2018', 'ES2019' or 'ESNEXT'. */
+  },
+}
