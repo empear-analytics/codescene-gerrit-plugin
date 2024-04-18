@@ -39,7 +39,7 @@ Set property `cache` to `false` to disable cache of CodeScene's results on the s
 Example:
 
 ```
-make build && cp target/codescene-gerrit-plugin-1.0.jar ~/docker-volumes/gerrit/plugins/codescene.jar
+make build && cp target/codescene-gerrit-plugin-1.0.5.jar ~/docker-volumes/gerrit/plugins/codescene.jar
 ```
 
 # License

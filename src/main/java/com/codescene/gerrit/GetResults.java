@@ -32,7 +32,6 @@ public class GetResults implements RestReadView<RevisionResource> {
         } else if (response != null && response.status == 200 && response.headers.get("etag") != null) {
             responses.put(url.toString(), response);
         }
-        System.out.println(System.currentTimeMillis() - time);
         return response;
     }
 
