@@ -24,7 +24,7 @@ public class GetResults implements RestReadView<RevisionResource> {
         long time = System.currentTimeMillis();
         HttpResponseHandler.HttpResult prevResponse = responses.getIfPresent(url.toString());
         if (prevResponse != null && prevResponse.headers.get("etag") != null && !"false".equals(controller.getConfigVal(project, "cache"))) {
-            //headers.put("if-none-match", prevResponse.headers.get("etag"));
+            headers.put("if-none-match", prevResponse.headers.get("etag"));
         }
         HttpResponseHandler.HttpResult response = controller.get(project, url, headers);
         if (response != null && response.status == 304) {
