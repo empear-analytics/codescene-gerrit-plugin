@@ -1,10 +1,10 @@
 # CodeScene Gerrit Plugin
 
-Run `npm install` to install npm packages and install Typescript compiler.
+#### Installing
 
-Install `esbuild` bundler.
+Copy plugin jar `codescene.jar` to your Gerrit `plugins` folder. Add configuration for the plugin.
 
-Build the plugin with `make build`. You can JAR in target folder.
+If you want to build the JAR yourself, see below.
 
 #### Configuration
 
@@ -36,10 +36,16 @@ Set property `cache` to `false` to disable cache of CodeScene's results on the s
 
 #### Building and deploying
 
+Run `npm install` to install npm packages and install Typescript compiler.
+
+Install `esbuild` bundler.
+
+Build the plugin with `make build`. You can find JAR in target folder.
+
 Example:
 
 ```
-make build && cp target/codescene-gerrit-plugin-1.0.5.jar ~/docker-volumes/gerrit/plugins/codescene.jar
+make build && cp target/codescene.jar ~/docker-volumes/gerrit/plugins/codescene.jar
 ```
 
 # License

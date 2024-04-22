@@ -5,3 +5,4 @@ build:
 	mvn compile
 	esbuild target/web/plugin.js --bundle --outfile=target/classes/static/codescene.js
 	mvn package
+	mv target/codescene-gerrit-plugin*.jar target/codescene.jar
