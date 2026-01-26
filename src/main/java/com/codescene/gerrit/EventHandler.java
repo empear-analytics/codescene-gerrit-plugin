@@ -1,10 +1,7 @@
 package com.codescene.gerrit;
 
 import com.google.common.base.Supplier;
-import com.google.gerrit.server.events.Event;
-import com.google.gerrit.server.events.EventListener;
-import com.google.gerrit.server.events.PatchSetCreatedEvent;
-import com.google.gerrit.server.events.SupplierSerializer;
+import com.google.gerrit.server.events.*;
 import com.google.gson.*;
 import com.google.inject.Inject;
 import org.slf4j.Logger;
@@ -42,9 +39,10 @@ public class EventHandler implements EventListener {
 
     @Override
     public void onEvent(Event event) {
-        if ("patchset-created".equals(event.getType())) {
+        if ("patchset-created".equals(event.getType()) || "change-merged".equals(event.getType())) {
             try {
-                controller.post(((PatchSetCreatedEvent)event).getProjectNameKey(), GSON.toJson(event));
+                log.info("Handling Event " + event.getType());
+                controller.post(((ChangeEvent)event).getProjectNameKey(), GSON.toJson(event));
             } catch (IOException e) {
                 log.error("Error POSTing to CodeScene", e);
             }

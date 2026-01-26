@@ -78,6 +78,7 @@ public class Controller {
     HttpResponseHandler.HttpResult post(Project.NameKey projectKey, String payload) throws IOException {
         try {
             String url = getUrl(projectKey);
+            log.info("Posting to url: " + url);
             if (url != null) {
                 HttpPost post = new HttpPost(url);
                 post.addHeader("Content-Type", "application/json");
